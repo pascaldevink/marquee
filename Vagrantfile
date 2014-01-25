@@ -2,8 +2,8 @@
 VAGRANTFILE_API_VERSION = "2"
 
 options = {}
-options[:ip_guest] = ARGV[1] || "192.168.33.123"
-options[:ansible_vars] = ARGV[2]
+options[:ip_guest] = ENV['IP'] || "192.168.33.123"
+options[:ansible_vars] = ENV['VARS']
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "raring64"
@@ -18,6 +18,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   config.vbguest.auto_update = true
   config.vbguest.no_remote = false
+
+#  config.vm.provider "virtualbox" do |vb|
+#    vb.name = "marquee"
+#  end
 
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "ansible/playbook.yml"
