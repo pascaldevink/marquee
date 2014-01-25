@@ -1,0 +1,8 @@
+---
+# Update the repo, because most boxes are heavily outdated
+- name: Commmon | Update apt repository
+  action: apt update_cache=yes
+
+# Required for adding other apt repos downthe line
+- name: Commmon | python-software-properties
+  action: apt pkg=python-software-properties state=installed
