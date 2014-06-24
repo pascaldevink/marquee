@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Needs vagrant-vbguest plugin installed. Install with:
   # $ vagrant gem install vagrant-vbguest
   #
-  config.vbguest.auto_update = true
+  config.vbguest.auto_update = false
   config.vbguest.no_remote = false
 
 #  config.vm.provider "virtualbox" do |vb|
