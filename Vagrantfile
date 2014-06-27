@@ -6,8 +6,10 @@ options[:ip_guest] = ENV['IP'] || "192.168.33.123"
 options[:ansible_vars] = ENV['VARS']
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "raring64"
-  config.vm.box_url = "http://goo.gl/ceHWg"
+  #config.vm.box = "raring64"
+  #config.vm.box_url = "http://goo.gl/ceHWg"
+  config.vm.box = "marquee"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/u/841883/marquee.box"
   config.vm.network :private_network, ip: options[:ip_guest]
   config.vm.synced_folder "./", "/var/www/phlybox", id: "vagrant-root", :nfs => true
 
